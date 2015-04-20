@@ -5,11 +5,12 @@ import org.apache.sshd.server.CommandFactory;
 import org.apache.sshd.server.command.UnknownCommand;
 
 /**
- * Created by Greg on 1/2/2015.
+ * Don't allow any commands
  */
 public class DummyCommandFactory implements CommandFactory{
     @Override
     public Command createCommand(String s) {
+        System.out.println("Attempted to run " + s);
         return new UnknownCommand(s);
     }
 }
